@@ -1,0 +1,62 @@
+[
+  {
+    "CLASSNAME": "bank.OutgoingTransfer",
+    "INSTANCE": {
+      "sender": "Christian",
+      "recipient": "Mark",
+      "date": "09.01.2015",
+      "amount": 734.12,
+      "description": "Transfer"
+    }
+  },
+  {
+    "CLASSNAME": "bank.Payment",
+    "INSTANCE": {
+      "incomingInterest": 0.3,
+      "outgoingInterest": 0.25,
+      "date": "24.06.2001",
+      "amount": -300.1,
+      "description": "Payment"
+    }
+  },
+  {
+    "CLASSNAME": "bank.IncomingTransfer",
+    "INSTANCE": {
+      "sender": "Mark",
+      "recipient": "Christian",
+      "date": "09.01.2015",
+      "amount": 734.12,
+      "description": "Transfer"
+    }
+  },
+  {
+    "CLASSNAME": "bank.Payment",
+    "INSTANCE": {
+      "incomingInterest": 0.3,
+      "outgoingInterest": 0.25,
+      "date": "24.03.2001",
+      "amount": 308.0,
+      "description": "Payment"
+    }
+  },
+  {
+    "CLASSNAME": "bank.IncomingTransfer",
+    "INSTANCE": {
+      "sender": "Betty",
+      "recipient": "Christian",
+      "date": "09.01.2015",
+      "amount": 734.12,
+      "description": "Transfer"
+    }
+  },
+  {
+    "CLASSNAME": "bank.OutgoingTransfer",
+    "INSTANCE": {
+      "sender": "Christian",
+      "recipient": "Mark",
+      "date": "10.01.2023",
+      "amount": 10.0,
+      "description": "hello"
+    }
+  }
+]

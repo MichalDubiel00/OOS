@@ -1,0 +1,105 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+abstract class Transaction {
+    #date: string
+    #amount: string
+    #descrition: int
+
+    +String getDate()
+    +void setDate(String newDate)
+    +double getAmount()
+    +void setAmount(double newAmount)
+    +String toString()
+    +boolean equals(Object obj)
+}
+class Payment {
+-double incomingInterest
+-double outgoingInterest
++void setAmount(double newAmount)
++double getIncomingInterest()
++void setIncomingInterest(double incomingInterest)
++double getOutgoingInterest()
++void setOutgoingInterest()
++Payment(String date,double amount,String description)
++Payment(String date,double amount,String description,double newIncomingInterest,double newOutGoingInterest)
++Payment(Payment payment)
++double calculate()
++String toString()
++boolean equals(Object obj)
+}
+class Transfer {
+    -String sender
+    -String recipient
+    +void setAmount(double newAmount)
+    +String getSender()
+    +void setSender(String newSender)
+    +String getRecipient()
+    +void setRecipient(String newRecipient)
+    +Transfer(String date,double amount,String description)
+    +Transfer(String date,double amount,String description,String sender,String recipient)
+    +Transfer(Transfer transfer)
+    +double calculate()
+    +String toString()
+    + boolean equals(Object obj)
+}
+class IncomingTransfer{
++IncomingTransfer(String date, double amount, String description)
++IncomingTransfer(String date, double amount, String description, String sender, String recipient)
++IncomingTransfer(Transfer transfer)
++double calculate()
+}
+class OutgoingTransfer{
++OutgoingTransfer(String date, double amount, String description)
++OutgoingTransfer(String date, double amount, String description, String sender, String recipient)
++OutgoingTransfer(Transfer transfer)
++double calculate()
+}
+interface Bank{
+void createAccount(String account)
+ void createAccount(String account, List<Transaction> transactions)
+ void addTransaction(String account, Transaction transaction)
+ void removeTransaction(String account, Transaction transaction)
+  boolean containsTransaction(String account, Transaction transaction)
+   double getAccountBalance(String account)
+   List<Transaction> getTransactions(String account)
+   List<Transaction> getTransactionsSorted(String account, boolean asc)
+   List<Transaction> getTransactionsByType(String account, boolean positive)
+}
+class PrivateBank{
++String name
+-double incomingInterest
+-double outgoingInterest
+-Map<String, List<Transaction>> accountsToTransactions
++String getName()
++double getIncomingInterest()
++void setIncomingInterest(double incomingInterest)
++double getOutgoingInterest()
++void setOutgoingInterest()
++void createAccount(String account)
++void createAccount(String account, List<Transaction> transactions)
++void addTransaction(String account, Transaction transaction)
++void removeTransaction(String account, Transaction transaction)
++boolean containsTransaction(String account, Transaction transaction)
++double getAccountBalance(String account)
++List<Transaction> getTransactions(String account)
++List<Transaction> getTransactionsSorted(String account, boolean asc)
++List<Transaction> getTransactionsByType(String account, boolean positive)
++String toString()
++boolean equals(Object obj)
++PrivateBank(String name, double incomingInterest, double outgoingInterest)
+}
+interface CalculateBill{
+double calculate()
+}
+
+Transaction <-- Payment
+Transaction <-- Transfer
+Transfer <-- OutgoingTransfer
+Transfer <-- IncomingTransfer
+CalculateBill <.. Transaction
+Bank<..PrivateBank
+
+
+@enduml
